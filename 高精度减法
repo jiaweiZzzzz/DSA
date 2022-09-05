@@ -1,0 +1,31 @@
+// 模拟减法运算
+bool cmp(vector<int> a, vector<int> b){
+    if(a.size() != b.size()) return a.size() > b.size();
+    for(int i = a.size() - 1; i >= 0; i--){
+        if(a[i] != b[i]) return a[i] > b[i];
+    }
+    return true;
+}
+
+if(cmp(a,b)){
+  sub(a, b);
+}else{
+  cout << '-';
+  sub(b, a);
+}
+
+vector<int> sub(vector<int> a, vector<int> b){
+  vector<int> res;
+  // 模拟
+  for(int i = 0, int t = 0; i < a.size() || t; i++){
+      t = a[i] - t;
+      if(i < b.size()) t -= b[i];
+      res.push_back((t + 10) % 10);
+      if(t < 0) t = 1;
+      else t = 0;
+  }
+  
+  while(res.size() > 0 && res.back() == 0) res.pop_back();
+  
+  return res;
+}
