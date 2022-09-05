@@ -30,8 +30,8 @@ binary_search(vector<double> q, double target){
     int left = 0, right = q.size() - 1;
     while(left < right){
         int mid = left + right >> 1;
-        if(check(mid)) left = mid;
-        else right = mid - 1;
+        if(check(mid)) right = mid;
+        else left = mid + 1;
     }
 }
 
