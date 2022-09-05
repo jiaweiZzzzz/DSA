@@ -10,3 +10,19 @@ vector<int> mult(vector<int> a, int b){
   
   return res;
 }
+
+
+int main(){
+
+    string a;
+    int b;
+    cin >> a >> b;
+
+    vector<int> A;
+    for(int i = a.size() - 1; i >= 0; i--) A.push_back(a[i] - '0');
+
+    auto C = mult(A, b);
+    for(int i = C.size() - 1; i >= 0; i--) cout << C[i];
+
+    return 0;
+}
