@@ -7,13 +7,6 @@ bool cmp(vector<int> a, vector<int> b){
     return true;
 }
 
-if(cmp(a,b)){
-  sub(a, b);
-}else{
-  cout << '-';
-  sub(b, a);
-}
-
 vector<int> sub(vector<int> a, vector<int> b){
   vector<int> res;
   // 模拟
@@ -28,4 +21,28 @@ vector<int> sub(vector<int> a, vector<int> b){
   while(res.size() > 0 && res.back() == 0) res.pop_back();
   
   return res;
+}
+
+
+int main(){
+    string n, m;
+    cin >> n >> m;
+
+    vector<int> A, B;
+
+    for(int i = n.size() - 1; i >= 0; i--) A.push_back(n[i] - '0');
+    for(int i = m.size() - 1; i >= 0; i--) B.push_back(m[i] - '0');
+
+
+    vector<int> C;
+    if(cmp(A, B)) {
+        C = sub(A, B);
+    }else {
+        C = sub (B ,A);
+        cout << "-";
+    }
+
+    for(int i = C.size() - 1; i >= 0; i--) cout << C[i];
+
+    return 0;
 }
