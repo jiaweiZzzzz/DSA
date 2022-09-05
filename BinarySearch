@@ -1,4 +1,4 @@
-// 两个模板
+// 整数二分
 
 // 区间 [l, r] 划分为 [l, mid]和[mid + 1, r]时使用：
 binary_search(vector<int> q, int target){
@@ -22,3 +22,18 @@ binary_search(vector<int> q, int target){
     
     return left;
 }
+
+
+
+// 浮点数二分
+binary_search(vector<double> q, double target){
+    int left = 0, right = q.size() - 1;
+    while(left < right){
+        int mid = left + right >> 1;
+        if(check(mid)) left = mid;
+        else right = mid - 1;
+    }
+}
+
+
+
